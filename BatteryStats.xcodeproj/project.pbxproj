@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C960186E1763C50000B2D563 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C960186D1763C50000B2D563 /* Foundation.framework */; };
+		C96018791763C50000B2D563 /* BatteryStats.mm in Sources */ = {isa = PBXBuildFile; fileRef = C96018781763C50000B2D563 /* BatteryStats.mm */; };
+		C96018841763C51800B2D563 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C96018831763C51800B2D563 /* libsubstrate.dylib */; };
+		C96018861763C52100B2D563 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96018851763C52100B2D563 /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C960186A1763C50000B2D563 /* BatteryStats.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = BatteryStats.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		C960186D1763C50000B2D563 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C96018731763C50000B2D563 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		C96018751763C50000B2D563 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		C96018761763C50000B2D563 /* BatteryStats-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BatteryStats-Prefix.pch"; sourceTree = "<group>"; };
+		C96018771763C50000B2D563 /* BatteryStats.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BatteryStats.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C96018781763C50000B2D563 /* BatteryStats.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BatteryStats.mm; sourceTree = "<group>"; };
+		C960187D1763C50000B2D563 /* BatteryStats.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = BatteryStats.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/BatteryStats.plist; sourceTree = "<group>"; };
+		C96018831763C51800B2D563 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
+		C96018851763C52100B2D563 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C96018891763C5D200B2D563 /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
+		C960188D1763C5DB00B2D563 /* BatteryStats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BatteryStats.txt; sourceTree = "<group>"; };
+		C99D5D421766729800900BD2 /* postinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
+		C99D5D431766729800900BD2 /* preinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = preinst; path = Package/DEBIAN/preinst; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C96018661763C50000B2D563 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C96018861763C52100B2D563 /* UIKit.framework in Frameworks */,
+				C96018841763C51800B2D563 /* libsubstrate.dylib in Frameworks */,
+				C960186E1763C50000B2D563 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C960185F1763C50000B2D563 = {
+			isa = PBXGroup;
+			children = (
+				C96018851763C52100B2D563 /* UIKit.framework */,
+				C96018831763C51800B2D563 /* libsubstrate.dylib */,
+				C960186F1763C50000B2D563 /* BatteryStats */,
+				C960186C1763C50000B2D563 /* Frameworks */,
+				C960186B1763C50000B2D563 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C960186B1763C50000B2D563 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C960186A1763C50000B2D563 /* BatteryStats.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C960186C1763C50000B2D563 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C960186D1763C50000B2D563 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C960186F1763C50000B2D563 /* BatteryStats */ = {
+			isa = PBXGroup;
+			children = (
+				C96018771763C50000B2D563 /* BatteryStats.xm */,
+				C96018781763C50000B2D563 /* BatteryStats.mm */,
+				C96018701763C50000B2D563 /* Package */,
+				C96018741763C50000B2D563 /* Supporting Files */,
+			);
+			path = BatteryStats;
+			sourceTree = "<group>";
+		};
+		C96018701763C50000B2D563 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				C960188A1763C5DB00B2D563 /* var */,
+				C96018711763C50000B2D563 /* DEBIAN */,
+				C960187A1763C50000B2D563 /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		C96018711763C50000B2D563 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				C99D5D421766729800900BD2 /* postinst */,
+				C99D5D431766729800900BD2 /* preinst */,
+				C96018731763C50000B2D563 /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		C96018741763C50000B2D563 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C96018751763C50000B2D563 /* PackageVersion.plist */,
+				C96018761763C50000B2D563 /* BatteryStats-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C960187A1763C50000B2D563 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C96018871763C5D200B2D563 /* Application Support */,
+				C960187B1763C50000B2D563 /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		C960187B1763C50000B2D563 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				C960187C1763C50000B2D563 /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		C960187C1763C50000B2D563 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				C960187D1763C50000B2D563 /* BatteryStats.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		C96018871763C5D200B2D563 /* Application Support */ = {
+			isa = PBXGroup;
+			children = (
+				C96018881763C5D200B2D563 /* BatteryStats */,
+			);
+			name = "Application Support";
+			path = "Package/Library/Application Support";
+			sourceTree = "<group>";
+		};
+		C96018881763C5D200B2D563 /* BatteryStats */ = {
+			isa = PBXGroup;
+			children = (
+				C96018891763C5D200B2D563 /* Preferences.plist */,
+			);
+			path = BatteryStats;
+			sourceTree = "<group>";
+		};
+		C960188A1763C5DB00B2D563 /* var */ = {
+			isa = PBXGroup;
+			children = (
+				C960188B1763C5DB00B2D563 /* mobile */,
+			);
+			name = var;
+			path = Package/var;
+			sourceTree = "<group>";
+		};
+		C960188B1763C5DB00B2D563 /* mobile */ = {
+			isa = PBXGroup;
+			children = (
+				C960188C1763C5DB00B2D563 /* Library */,
+			);
+			path = mobile;
+			sourceTree = "<group>";
+		};
+		C960188C1763C5DB00B2D563 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C960188D1763C5DB00B2D563 /* BatteryStats.txt */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C96018671763C50000B2D563 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C96018691763C50000B2D563 /* BatteryStats */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C96018801763C50000B2D563 /* Build configuration list for PBXNativeTarget "BatteryStats" */;
+			buildPhases = (
+				C96018641763C50000B2D563 /* ShellScript */,
+				C96018651763C50000B2D563 /* Sources */,
+				C96018661763C50000B2D563 /* Frameworks */,
+				C96018671763C50000B2D563 /* Headers */,
+				C96018681763C50000B2D563 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BatteryStats;
+			productName = BatteryStats;
+			productReference = C960186A1763C50000B2D563 /* BatteryStats.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C96018601763C50000B2D563 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = C96018631763C50000B2D563 /* Build configuration list for PBXProject "BatteryStats" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C960185F1763C50000B2D563;
+			productRefGroup = C960186B1763C50000B2D563 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C96018691763C50000B2D563 /* BatteryStats */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C96018641763C50000B2D563 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		C96018681763C50000B2D563 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C96018651763C50000B2D563 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C96018791763C50000B2D563 /* BatteryStats.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C960187E1763C50000B2D563 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		C960187F1763C50000B2D563 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		C96018811763C50000B2D563 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BatteryStats/BatteryStats-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		C96018821763C50000B2D563 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BatteryStats/BatteryStats-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C96018631763C50000B2D563 /* Build configuration list for PBXProject "BatteryStats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C960187E1763C50000B2D563 /* Debug */,
+				C960187F1763C50000B2D563 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C96018801763C50000B2D563 /* Build configuration list for PBXNativeTarget "BatteryStats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C96018811763C50000B2D563 /* Debug */,
+				C96018821763C50000B2D563 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C96018601763C50000B2D563 /* Project object */;
+}

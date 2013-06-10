@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'BatteryStats' target in the 'BatteryStats' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -e '/var/mobile/Library/BatteryStats.txt.bak' ]
+  then
+    rm '/var/mobile/Library/BatteryStats.txt'
+    mv '/var/mobile/Library/BatteryStats.txt.bak' '/var/mobile/Library/BatteryStats.txt'
+    chown mobile '/var/mobile/Library/BatteryStats.txt'
+    chmod 0775 '/var/mobile/Library/BatteryStats.txt'
+
+fi
