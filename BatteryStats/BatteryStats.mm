@@ -7,12 +7,19 @@
 
 static NSTimer *timer;
 
+@interface SpringBoard (BatteryStats)
+
+-(void)batteryLevelChanged;
+-(void)batteryStateChanged:(NSNotification *)notification;
+
+@end
+
 #include <logos/logos.h>
 #include <substrate.h>
 @class SBAwayController; @class SpringBoard; 
-static void (*_logos_orig$_ungrouped$SpringBoard$_performDeferredLaunchWork)(SpringBoard*, SEL); static void _logos_method$_ungrouped$SpringBoard$_performDeferredLaunchWork(SpringBoard*, SEL); static void _logos_method$_ungrouped$SpringBoard$batteryStateChanged$(SpringBoard*, SEL, NSNotification *); static void _logos_method$_ungrouped$SpringBoard$batteryLevelChanged(SpringBoard*, SEL); static void (*_logos_orig$_ungrouped$SBAwayController$undimScreen$)(SBAwayController*, SEL, BOOL); static void _logos_method$_ungrouped$SBAwayController$undimScreen$(SBAwayController*, SEL, BOOL); 
+static void (*_logos_orig$_ungrouped$SpringBoard$_performDeferredLaunchWork)(SpringBoard*, SEL); static void _logos_method$_ungrouped$SpringBoard$_performDeferredLaunchWork(SpringBoard*, SEL); static void _logos_method$_ungrouped$SpringBoard$batteryStateChanged$(SpringBoard*, SEL, NSNotification *); static void _logos_method$_ungrouped$SpringBoard$batteryLevelChanged(SpringBoard*, SEL); static void (*_logos_orig$_ungrouped$SBAwayController$undimScreen$)(SBAwayController*, SEL, BOOL); static void _logos_method$_ungrouped$SBAwayController$undimScreen$(SBAwayController*, SEL, BOOL); static void (*_logos_orig$_ungrouped$SBAwayController$undimScreen)(SBAwayController*, SEL); static void _logos_method$_ungrouped$SBAwayController$undimScreen(SBAwayController*, SEL); 
 
-#line 9 "/Users/Matt/iOS/Projects/BatteryStats/BatteryStats/BatteryStats.xm"
+#line 16 "/Users/Matt/iOS/Projects/BatteryStats/BatteryStats/BatteryStats.xm"
 
 
 
@@ -122,6 +129,7 @@ static void _logos_method$_ungrouped$SpringBoard$batteryLevelChanged(SpringBoard
 
 
 
+
 static void _logos_method$_ungrouped$SBAwayController$undimScreen$(SBAwayController* self, SEL _cmd, BOOL arg1) {
     _logos_orig$_ungrouped$SBAwayController$undimScreen$(self, _cmd, arg1);
     
@@ -131,6 +139,15 @@ static void _logos_method$_ungrouped$SBAwayController$undimScreen$(SBAwayControl
 }
 
 
+static void _logos_method$_ungrouped$SBAwayController$undimScreen(SBAwayController* self, SEL _cmd) {
+    _logos_orig$_ungrouped$SBAwayController$undimScreen(self, _cmd);
+    
+    
+    [(SpringBoard*)[UIApplication sharedApplication] batteryLevelChanged];
+    [(SpringBoard*)[UIApplication sharedApplication] batteryStateChanged:nil];
+}
+
+
 static __attribute__((constructor)) void _logosLocalInit() {
-{Class _logos_class$_ungrouped$SpringBoard = objc_getClass("SpringBoard"); MSHookMessageEx(_logos_class$_ungrouped$SpringBoard, @selector(_performDeferredLaunchWork), (IMP)&_logos_method$_ungrouped$SpringBoard$_performDeferredLaunchWork, (IMP*)&_logos_orig$_ungrouped$SpringBoard$_performDeferredLaunchWork);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; memcpy(_typeEncoding + i, @encode(NSNotification *), strlen(@encode(NSNotification *))); i += strlen(@encode(NSNotification *)); _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$SpringBoard, @selector(batteryStateChanged:), (IMP)&_logos_method$_ungrouped$SpringBoard$batteryStateChanged$, _typeEncoding); }{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$SpringBoard, @selector(batteryLevelChanged), (IMP)&_logos_method$_ungrouped$SpringBoard$batteryLevelChanged, _typeEncoding); }Class _logos_class$_ungrouped$SBAwayController = objc_getClass("SBAwayController"); MSHookMessageEx(_logos_class$_ungrouped$SBAwayController, @selector(undimScreen:), (IMP)&_logos_method$_ungrouped$SBAwayController$undimScreen$, (IMP*)&_logos_orig$_ungrouped$SBAwayController$undimScreen$);} }
-#line 127 "/Users/Matt/iOS/Projects/BatteryStats/BatteryStats/BatteryStats.xm"
+{Class _logos_class$_ungrouped$SpringBoard = objc_getClass("SpringBoard"); MSHookMessageEx(_logos_class$_ungrouped$SpringBoard, @selector(_performDeferredLaunchWork), (IMP)&_logos_method$_ungrouped$SpringBoard$_performDeferredLaunchWork, (IMP*)&_logos_orig$_ungrouped$SpringBoard$_performDeferredLaunchWork);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; memcpy(_typeEncoding + i, @encode(NSNotification *), strlen(@encode(NSNotification *))); i += strlen(@encode(NSNotification *)); _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$SpringBoard, @selector(batteryStateChanged:), (IMP)&_logos_method$_ungrouped$SpringBoard$batteryStateChanged$, _typeEncoding); }{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$SpringBoard, @selector(batteryLevelChanged), (IMP)&_logos_method$_ungrouped$SpringBoard$batteryLevelChanged, _typeEncoding); }Class _logos_class$_ungrouped$SBAwayController = objc_getClass("SBAwayController"); MSHookMessageEx(_logos_class$_ungrouped$SBAwayController, @selector(undimScreen:), (IMP)&_logos_method$_ungrouped$SBAwayController$undimScreen$, (IMP*)&_logos_orig$_ungrouped$SBAwayController$undimScreen$);MSHookMessageEx(_logos_class$_ungrouped$SBAwayController, @selector(undimScreen), (IMP)&_logos_method$_ungrouped$SBAwayController$undimScreen, (IMP*)&_logos_orig$_ungrouped$SBAwayController$undimScreen);} }
+#line 144 "/Users/Matt/iOS/Projects/BatteryStats/BatteryStats/BatteryStats.xm"

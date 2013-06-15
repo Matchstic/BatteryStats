@@ -6,9 +6,16 @@
 
 static NSTimer *timer;
 
+@interface SpringBoard (BatteryStats)
+
+-(void)batteryLevelChanged;
+-(void)batteryStateChanged:(NSNotification *)notification;
+
+@end
+
 %hook SpringBoard
 
-// Breakage point with iOS releases, good for iOS 5.0+, not for 4.3.x
+// Breakage point with iOS releases, good for iOS 5.0+, not for 4.3.x - 7.0 works!
 -(void)_performDeferredLaunchWork {
     %orig;
     
@@ -88,7 +95,7 @@ static NSTimer *timer;
 -(void)batteryLevelChanged {
     // Get battery value
     
-    // breakage point, good for iOS 4.3+
+    // breakage point, good for iOS 4.3+, even 7.0!
     int percent = [(SBUIController*)[objc_getClass("SBUIController") sharedInstance] displayBatteryCapacityAsPercentage];
     
     NSString *finalLevel = [@"Level: " stringByAppendingString:[NSString stringWithFormat:@"%d",percent]];
@@ -115,7 +122,17 @@ static NSTimer *timer;
 
 %hook SBAwayController
 
+// Works on 7.0, 6.0+ :)
 -(void)undimScreen:(BOOL)arg1 {
+    %orig;
+    
+    // Let's set our new levels/states when coming out of sleep!
+    [(SpringBoard*)[UIApplication sharedApplication] batteryLevelChanged];
+    [(SpringBoard*)[UIApplication sharedApplication] batteryStateChanged:nil];
+}
+
+// iOS 5.0+ compatibilty
+-(void)undimScreen {
     %orig;
     
     // Let's set our new levels/states when coming out of sleep!
